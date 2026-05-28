@@ -32,3 +32,9 @@ Thumbs.db
 
 # Maven build output
 backend/target/
+
+# iOS
+*.ipa
+ios/App/build/
+ios/App/Pods/
+ios/DerivedData/
