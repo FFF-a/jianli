@@ -4,8 +4,8 @@
     "products": [
       {
         "name": "default",
-        "compatibleSdkVersion": "5.0.0(14)",
-        "compileSdkVersion": "5.0.0(14)",
+        "compatibleSdkVersion": "6.0.0(17)",
+        "compileSdkVersion": "6.0.0(17)",
         "compileSdkType": "HarmonyOS",
         "runtimeOS": "HarmonyOS"
       }
