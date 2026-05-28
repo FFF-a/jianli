@@ -1,6 +1,8 @@
 {
-  "name": "liezhi",
-  "version": "1.0.0",
+  "modelVersion": "5.0.0",
   "description": "猎职 - HarmonyOS App",
-  "dependencies": {}
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
 }

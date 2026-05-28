@@ -2,5 +2,8 @@
   "name": "entry",
   "version": "1.0.0",
   "description": "猎职 Entry Module",
+  "main": "",
+  "author": "",
+  "license": "",
   "dependencies": {}
 }
