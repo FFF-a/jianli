@@ -6,8 +6,8 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "build:android": "vite build --outDir dist",
-    "cap:sync": "pnpm build:android && npx cap sync",
+    "build:android": "vite build --outDir dist --mode android",
+    "cap:sync": "pnpm build:android && npx cap sync android",
     "cap:open": "npx cap open android"
   },
   "dependencies": {

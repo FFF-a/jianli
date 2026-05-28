@@ -49,6 +49,13 @@ function forceLogout(): void {
   window.dispatchEvent(new CustomEvent(AUTH_LOGOUT));
 }
 
+// ── API base URL ──
+const BASE = import.meta.env.VITE_API_BASE_URL || '';
+
+function apiUrl(path: string): string {
+  return BASE ? `${BASE}${path}` : path;
+}
+
 // ── API fetch ──
 let isRefreshing = false;
 let refreshPromise: Promise<boolean> | null = null;
@@ -58,7 +65,7 @@ async function tryRefresh(): Promise<boolean> {
   if (!currentRefresh) return false;
 
   try {
-    const res = await fetch('/api/auth/refresh', {
+    const res = await fetch(apiUrl('/api/auth/refresh'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ refreshToken: currentRefresh }),
@@ -83,7 +90,7 @@ async function apiFetch<T>(url: string, options: RequestInit = {}): Promise<T> {
     headers['Authorization'] = `Bearer ${token}`;
   }
 
-  let res = await fetch(url, { ...options, headers });
+  let res = await fetch(apiUrl(url), { ...options, headers });
 
   // 401 — try token refresh once
   if (res.status === 401) {
@@ -98,7 +105,7 @@ async function apiFetch<T>(url: string, options: RequestInit = {}): Promise<T> {
     if (refreshed) {
       const newToken = getAccessToken();
       headers['Authorization'] = `Bearer ${newToken}`;
-      res = await fetch(url, { ...options, headers });
+      res = await fetch(apiUrl(url), { ...options, headers });
     } else {
       forceLogout();
       throw new Error('请重新登录');
