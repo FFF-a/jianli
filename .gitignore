@@ -38,3 +38,10 @@ backend/target/
 ios/App/build/
 ios/App/Pods/
 ios/DerivedData/
+
+# HarmonyOS
+*.hap
+harmonyos/entry/build/
+harmonyos/build/
+harmonyos/.hvigor/
+harmonyos/node_modules/
