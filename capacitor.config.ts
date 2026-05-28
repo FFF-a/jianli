@@ -5,8 +5,8 @@ const config: CapacitorConfig = {
   appName: '猎职',
   webDir: 'dist',
   server: {
-    androidScheme: 'https',
-    iosScheme: 'https'
+    androidScheme: 'http',
+    iosScheme: 'http'
   }
 };
 
