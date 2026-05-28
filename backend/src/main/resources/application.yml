@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: dev
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+
+server:
+  port: 8080
+
+jwt:
+  secret: bGllenhoaS1zZWNyZXQta2V5LTIwMjQtZm9yLWp3dC10b2tlbi1nZW5lcmF0aW9uLWJhc2U2NA==
+  access-token-expiration: 1800000
+  refresh-token-expiration: 604800000
+
+sms:
+  provider: mock

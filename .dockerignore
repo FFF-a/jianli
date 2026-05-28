@@ -1,0 +1,23 @@
+# Frontend
+node_modules/
+dist/
+.vite/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Claude AI
+.claude/
+
+# Git
+.git/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.env
+.env.local
