@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# hvigorw - HarmonyOS build wrapper
+# Usage: ./hvigorw assembleHap
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+HVIGOR_DIR="$SCRIPT_DIR/hvigor"
+WRAPPER_PATH="$HVIGOR_DIR/hvigor-wrapper.js"
+
+# Check if hvigor is installed in node_modules
+if [ ! -d "$SCRIPT_DIR/node_modules/@ohos/hvigor" ]; then
+  echo "[hvigorw] Installing build dependencies..."
+  cd "$SCRIPT_DIR" && npm install --save-dev @ohos/hvigor @ohos/hvigor-ohos-plugin 2>/dev/null || {
+    echo "[hvigorw] Failed to install hvigor. Make sure npm is available."
+    exit 1
+  }
+fi
+
+# Detect Node.js
+NODE="node"
+if command -v node &> /dev/null; then
+  NODE="node"
+elif [ -f "$HVIGOR_DIR/node/bin/node" ]; then
+  NODE="$HVIGOR_DIR/node/bin/node"
+else
+  echo "[hvigorw] Node.js not found"
+  exit 1
+fi
+
+# Run the wrapper
+exec "$NODE" "$WRAPPER_PATH" "$@"
